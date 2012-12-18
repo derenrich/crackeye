@@ -1,9 +1,9 @@
 crackeye
 ========
 
-[Minteye](http://www.minteye.com/) is a new CAPTCHA in a modern CAPTCHA trend of weak advertising-based CAPTCHAs (see also [NuCaptcha](http://www.nucaptcha.com/)). I find these frustrating because they monetize what should be free and because they are weaker than non-advertising CAPTCHAs.
+[Minteye](http://www.minteye.com/) is a new CAPTCHA in a modern trend of weak advertising-based CAPTCHAs (similar to [NuCaptcha](http://www.nucaptcha.com/)). I find these CAPTCHAs frustrating because they monetize what should be free and because they are generally weaker than non-advertising CAPTCHAs.
 
-See [the minteye website](http://www.minteye.com/Products.aspx) for an example of a CAPTCHA this is designed to crack. It works most of the time and when it doesn't it returns a frame close to the correct frame. Some additional tweaking should get 100% accuracy.
+This program cracks the current version of Minteye. See [the minteye website](http://www.minteye.com/Products.aspx) for an example CAPTCHA. The program works most of the time and when it doesn't it returns a frame close to the correct frame. Some additional tweaking should get 100% accuracy.
 
 The scripts require numpy and the opencv python bindings.
 
