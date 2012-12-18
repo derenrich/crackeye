@@ -12,6 +12,12 @@ def slope(p1,p2):
     else:
         return atan((p2[1]-p1[1]) / float(p2[0]-p1[0])) 
 
+def closestPenalty(angle):
+    return min(angle **2 , (abs(angle) - pi/2) **2)
+
+def length(p1,p2):
+    return (p1[0]-p2[0])**2 + (p1[1] - p2[1]) **2
+
 def evaluateFiles(files):
     results = []
     cv.NamedWindow("Source", 1)
@@ -27,11 +33,12 @@ def evaluateFiles(files):
         storage = cv.CreateMemStorage(0)
         cv.Canny(src, dst, 50, 200, 3)
         cv.CvtColor(dst, color_dst, cv.CV_GRAY2BGR)
-        lines = cv.HoughLines2(dst, storage, cv.CV_HOUGH_PROBABILISTIC, 1, pi / 180, 40, 15, 2)
+        lines = cv.HoughLines2(dst, storage, cv.CV_HOUGH_PROBABILISTIC, 1, pi / 180, 20, 15, 2)
         angles = []
         for line in lines:
             angles.append(slope(line[0],line[1]))
-        score = mean(map(lambda a : a**2, angles))
+
+        score = mean(map(lambda a : closestPenalty(a), angles))
         for line in lines:
             cv.Line(color_dst, line[0], line[1], cv.CV_RGB(255, 0, 0), 3, 8)
         #cv.ShowImage("Hough", color_dst)
